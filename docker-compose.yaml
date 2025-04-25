@@ -1,0 +1,14 @@
+version: '3'
+services:
+  api-planejamento:
+    build:
+      context: .
+    container_name: planejamento-api
+    ports:
+      - "8081:8081"
+    networks:
+      - refeicoes-network
+
+networks:
+  refeicoes-network:
+    external: true
