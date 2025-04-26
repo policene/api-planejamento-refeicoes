@@ -1,5 +1,12 @@
 version: '3'
 services:
+  planejamento-cache:
+    image: redis:7
+    container_name: planejamento-cache
+    ports:
+      - "6380:6379"
+    networks:
+      - refeicoes-network
   api-planejamento:
     build:
       context: .
@@ -8,7 +15,8 @@ services:
       - "8081:8081"
     networks:
       - refeicoes-network
-
+    depends_on:
+      - planejamento-cache
 networks:
   refeicoes-network:
     external: true

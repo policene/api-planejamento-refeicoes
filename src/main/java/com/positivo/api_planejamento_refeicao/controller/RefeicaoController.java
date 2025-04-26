@@ -4,6 +4,7 @@ package com.positivo.api_planejamento_refeicao.controller;
 import com.positivo.api_planejamento_refeicao.dto.IngredientesRequestDTO;
 import com.positivo.api_planejamento_refeicao.dto.ReceitaResponseDTO;
 import com.positivo.api_planejamento_refeicao.service.RefeicaoService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,7 @@ public class RefeicaoController {
     public ResponseEntity<List<ReceitaResponseDTO>> receitasDisponiveis(@RequestBody IngredientesRequestDTO request){
         return ResponseEntity.ok(refeicaoService.mostrarRefeicoes(request.ingredientes()));
     }
+
 
 
 }
